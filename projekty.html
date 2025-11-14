@@ -3,25 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Norbert Pietrzyk</title>
+    <title>Projekty - Norbert Pietrzyk</title>
+    <meta name="description" content="Przegląd projektów webowych, designu i skryptów stworzonych przez Norberta Pietrzyka.">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    
+    <header class="header">
+        <nav class="navigation">
+            <a href="index.html" class="logo">Norbert Pietrzyk</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-button">Home</a>
+                <a href="o-mnie.html" class="nav-button">O mnie</a>
+                <a href="projekty.html" class="nav-button active">Projekty</a>
+                <a href="umiejentnosci.html" class="nav-button">Umiejętności</a>
+                <a href="kontakt.html" class="nav-button">Kontakt</a>
+            </div>
+        </nav>
+    </header>
+
     <main class="profile-section">
         <div class="profile-contener">
-            <img src="kot.jpg" alt="Profilowe zdjęzie" class="profile-image">
-            <h1 class="profile-name">Norbert Pierzyk</h1>
+            <img src="kot.jpg" alt="Zdjęcie profilowe Norberta Pietrzyka" class="profile-image">
+            <h1 class="profile-name">Norbert Pietrzyk</h1>
         </div>
     </main>
+    
+    <div class="page-content">
+        <section class="page-section projects-section">
+            <h2>Moje Projekty</h2>
+            
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterProjects('all')">Wszystkie</button>
+                <button class="filter-btn" onclick="filterProjects('web')">Web Development</button>
+                <button class="filter-btn" onclick="filterProjects('script')">Skrypty & Automatyzacja</button>
+                <button class="filter-btn" onclick="filterProjects('design')">Design & UX</button>
+            </div>
+            
+            <div class="projects-container">
+                <div class="project-item" data-category="web">
+                    <h3>Portfolio v1.0 (HTML/CSS/JS)</h3>
+                    <p>W pełni responsywna strona osobistego portfolio, prezentująca umiejętności w zakresie nowoczesnego designu i czystego front-endu.</p>
+                    <a href="#" target="_blank" style="color: var(--primary-color);">Zobacz Demo</a>
+                </div>
+                
+                <div class="project-item" data-category="design">
+                    <h3>Mockup Aplikacji Finansowej</h3>
+                    <p>Projekt interfejsu użytkownika (UI/UX) dla mobilnej aplikacji do zarządzania budżetem, zrealizowany w Figma/Sketch.</p>
+                </div>
+                
+                <div class="project-item" data-category="script">
+                    <h3>Skrypt do Automatycznej Konwersji Plików</h3>
+                    <p>Skrypt w Pythonie automatyzujący proces zbiorczej konwersji plików graficznych/tekstowych, oszczędzający czas w codziennej pracy.</p>
+                    <a href="https://github.com/NorbertPietrzyk" target="_blank" style="color: var(--primary-color);">Repozytorium GitHub</a>
+                </div>
+                
+                <div class="project-item" data-category="web">
+                    <h3>Prototyp Sklepu Online</h3>
+                    <p>Prototyp funkcjonalności koszyka i strony produktu dla małego sklepu internetowego. Oparty o czysty JavaScript.</p>
+                </div>
+            </div>
+        </section>
+    </div>
 
-    <nav class="navigation">
-        <a href="index.html" class="nav-button">Strona Główna</a>
-    </nav>
-      <div class="projektyyy">
-    <h2>Projekty:</h2>
-      <p>1</p>
-      <p>2</p>
-      <p>3</p>
-      </div>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="clock" id="current-time"></div>
+            <div class="pageVisitCount" id="visit-count"></div>
+            <p>&copy; 2025 Norbert Pietrzyk. Wszelkie prawa zastrzeżone.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script> 
 </body>
 </html>

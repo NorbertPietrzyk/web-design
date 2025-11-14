@@ -3,22 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Norbert Pietrzyk</title>
+    <title>O Mnie - Norbert Pietrzyk</title>
+    <meta name="description" content="Informacje o doświadczeniu i pasjach Norberta Pietrzyka.">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    
+    <header class="header">
+        <nav class="navigation">
+            <a href="index.html" class="logo">Norbert Pietrzyk</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-button">Home</a>
+                <a href="o-mnie.html" class="nav-button active">O mnie</a>
+                <a href="projekty.html" class="nav-button">Projekty</a>
+                <a href="umiejentnosci.html" class="nav-button">Umiejętności</a>
+                <a href="kontakt.html" class="nav-button">Kontakt</a>
+            </div>
+        </nav>
+    </header>
+    
     <main class="profile-section">
         <div class="profile-contener">
-            <img src="kot.jpg" alt="Profilowe zdjęzie" class="profile-image">
-            <h1 class="profile-name">Norbert Pierzyk</h1>
+            <img src="kot.jpg" alt="Zdjęcie profilowe Norberta Pietrzyka" class="profile-image">
+            <h1 class="profile-name">Norbert Pietrzyk</h1>
         </div>
     </main>
-    <nav class="navigation">
-        <a href="index.html" class="nav-button">Strona Główna</a>
-    </nav>
-    <p class="tekst-o-mnie">
-        Jestem ambitnym i zaangażowanym programistą z pasją do tworzenia nowoczesnych, skalowalnych rozwiązań. Posiadam solidne podstawy w programowaniu obiektowym, algorytmice oraz pracy zespołowej w środowisku Agile. Chętnie uczę się nowych technologii i stale rozwijam swoje umiejętności, zarówno w zakresie backendu, jak i frontendu. Cenię sobie czysty kod, dobre praktyki i komunikację w zespole. Moim celem jest tworzenie oprogramowania, które realnie rozwiązuje problemy użytkowników.
-    </p>
+    
+    <div class="page-content">
+        <section class="page-section">
+            <h2>Kim jestem?</h2>
+            <p class="about-text">
+                Jestem ambitnym i zaangażowanym programistą z pasją do tworzenia nowoczesnych, skalowalnych rozwiązań. Posiadam solidne podstawy w programowaniu obiektowym, algorytmice oraz pracy zespołowej w środowisku Agile. Chętnie uczę się nowych technologii i stale rozwijam swoje umiejętności, zarówno w zakresie backendu, jak i frontendu. Cenię sobie **czysty kod**, **dobre praktyki** i **komunikację w zespole**. Moim celem jest tworzenie oprogramowania, które realnie rozwiązuje problemy użytkowników.
+            </p>
+            <h3 style="margin-top: 30px; color: var(--text-dark);">Moje Wartości</h3>
+            <ul class="skills-list" style="list-style-type: disc; padding-left: 20px;">
+                <li>Ciągłe doskonalenie</li>
+                <li>Podejście zorientowane na rozwiązywanie problemów</li>
+                <li>Skuteczna komunikacja</li>
+                <li>Pasja do technologii</li>
+            </ul>
+        </section>
+    </div>
 
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="clock" id="current-time"></div>
+            <div class="pageVisitCount" id="visit-count"></div>
+            <p>&copy; 2025 Norbert Pietrzyk. Wszelkie prawa zastrzeżone.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script> 
 </body>
 </html>

@@ -3,31 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Norbert Pietrzyk</title>
+    <title>Kontakt - Norbert Pietrzyk</title>
+    <meta name="description" content="Dane kontaktowe i formularz kontaktowy do Norberta Pietrzyka.">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    
+    <header class="header">
+        <nav class="navigation">
+            <a href="index.html" class="logo">Norbert Pietrzyk</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-button">Home</a>
+                <a href="o-mnie.html" class="nav-button">O mnie</a>
+                <a href="projekty.html" class="nav-button">Projekty</a>
+                <a href="umiejentnosci.html" class="nav-button">Umiejętności</a>
+                <a href="kontakt.html" class="nav-button active">Kontakt</a>
+            </div>
+        </nav>
+    </header>
+
     <main class="profile-section">
         <div class="profile-contener">
-            <img src="kot.jpg" alt="Profilowe zdjęzie" class="profile-image">
-            <h1 class="profile-name">Norbert Pierzyk</h1>
+            <img src="kot.jpg" alt="Zdjęcie profilowe Norberta Pietrzyka" class="profile-image">
+            <h1 class="profile-name">Norbert Pietrzyk</h1>
         </div>
     </main>
-
-    <nav class="navigation">
-        <a href="index.html" class="nav-button">Strona Główna</a>
-    </nav>
     
-    <div class="contact">
-  <h2>Kontakt</h2>
-  <p><strong>Imię i nazwisko:</strong> Norbert Pietrzyk</p>
-  <p><strong>Telefon:</strong> <a href="tel:+48123456789">+48 577 402 236</a></p>
-  <p><strong>GitHub:</strong> <a href="https://github.com/NorbertPietrzyk" target="_blank">https://github.com/NorbertPietrzyk</a></p>
-</div>
+    <div class="page-content">
+        <section class="page-section contact-form-container">
+            <h2>Skontaktuj się ze mną</h2>
+            
+            <div class="contact-info">
+                <p><strong>Email:</strong> <a href="mailto:kontakt@norbertpietrzyk.pl">kontakt@norbertpietrzyk.pl</a></p>
+                <p><strong>Telefon:</strong> <a href="tel:+48577402236">+48 577 402 236</a> </p>
+                <p><strong>GitHub:</strong> <a href="https://github.com/NorbertPietrzyk" target="_blank">https://github.com/NorbertPietrzyk</a></p>
+                
+                <div class="wave-text" style="margin-top: 20px;">
+                    <span>Z</span><span>a</span><span>p</span><span>r</span><span>a</span><span>s</span><span>z</span><span>a</span><span>m</span> <span>d</span><span>o</span> <span>w</span><span>s</span><span>p</span><span>ó</span><span>ł</span><span>p</span><span>r</span><span>a</span><span>c</span><span>y</span>
+                </div>
+            </div>
 
-<div class="wave-text">
-  <span>C</span><span>H</span><span>C</span><span>E</span><span>S</span><span>Z</span> <span>N</span><span>A</span><span>W</span><span>I</span><span>Ą</span><span>Z</span><span>A</span><span>C</span> <span>K</span><span>O</span><span>N</span><span>T</span><span>A</span><span>K</span><span>T</span> <span>T</span><span>O</span> <span>P</span><span>i</span><span>S</span><span>Z
-</div>
+            <h3 style="margin-top: 40px; margin-bottom: 20px;">Lub użyj formularza:</h3>
+
+            <form id="contactForm" onsubmit="return validateForm()">
+                <div class="form-group">
+                    <label for="name">Imię i Nazwisko:</label>
+                    <input type="text" id="name" name="name" required>
+                    <div class="error-message" id="nameError"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Adres Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <div class="error-message" id="emailError"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Temat:</label>
+                    <input type="text" id="subject" name="subject" required>
+                    <div class="error-message" id="subjectError"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Wiadomość:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                    <div class="error-message" id="messageError"></div>
+                </div>
+
+                <button type="submit">Wyślij wiadomość</button>
+                <p id="successMessage" style="display:none; color: var(--accent-color); margin-top: 15px; font-weight: bold;">✅ Dziękuję! Wiadomość została wysłana.</p>
+            </form>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="clock" id="current-time"></div>
+            <div class="pageVisitCount" id="visit-count"></div>
+            <p>&copy; 2025 Norbert Pietrzyk. Wszelkie prawa zastrzeżone.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script> 
 </body>
 </html>
 

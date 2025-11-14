@@ -3,20 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Norbert Pietrzyk</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Norbert Pietrzyk - Developer Portfolio</title>
+    <meta name="description" content="Oficjalna strona portfolio Norberta Pietrzyka - programisty i developera.">
+    <link rel="stylesheet" href="style.css"> 
 </head>
-<body>
+<body> 
+    
+    <header class="header">
+        <nav class="navigation">
+            <a href="index.html" class="logo">Norbert Pietrzyk</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-button active">Home</a>
+                <a href="o-mnie.html" class="nav-button">O mnie</a>
+                <a href="projekty.html" class="nav-button">Projekty</a>
+                <a href="umiejentnosci.html" class="nav-button">Umiejętności</a>
+                <a href="kontakt.html" class="nav-button">Kontakt</a>
+            </div>
+        </nav>
+    </header>
+    
     <main class="profile-section">
         <div class="profile-contener">
-            <img src="kot.jpg" alt="Profilowe zdjęzie" class="profile-image">
-            <h1 class="profile-name">Norbert Pierzyk</h1>
+            <img src="kot.jpg" alt="Zdjęcie profilowe Norberta Pietrzyka" class="profile-image">
+            <h1 class="profile-name">Norbert Pietrzyk</h1>
+            <p class="profile-title">Ambitny Developer Web & Pasjonat Technologii</p>
         </div>
     </main>
-    <nav class="navigation">
-        <a href="o-mnie.html" class="nav-button">O mnie</a>
-        <a href="kontakt.html" class="nav-button">Kontakt</a>
-        <a href="projekty.html" class="nav-button">Projekty</a>
-    </nav>
+
+    <div class="page-content">
+        <section class="page-section">
+            <h2>Witaj na Mojej Stronie!</h2>
+            <p class="about-text">
+                Cześć! Jestem Norbert, a to moje portfolio, w którym prezentuję moje projekty i umiejętności w dziedzinie programowania. Skupiam się na tworzeniu czystego, wydajnego i nowoczesnego kodu. Zapraszam do zapoznania się z moimi realizacjami i doświadczeniem!
+            </p>
+            <p class="about-text" style="margin-top: 15px;">
+                <a href="projekty.html" class="nav-button" style="display: inline-block;">Zobacz moje projekty</a>
+            </p>
+        </section>
+    </div>
+    
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="clock" id="current-time"></div>
+            <div class="pageVisitCount" id="visit-count"></div>
+            <p>&copy; 2025 Norbert Pietrzyk. Wszelkie prawa zastrzeżone.</p>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() { 
+            
+            const timeDisplayElement = document.getElementById('current-time');
+            
+            if (timeDisplayElement) {
+                function updateTime(){
+                    const now = new Date();
+                    const formattedDate = now.toLocaleDateString('pl-PL', { day: '2-digit', month: '2-digit', year: 'numeric' });
+                    const formattedTime = now.toLocaleTimeString('pl-PL', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+
+                    timeDisplayElement.textContent = `Dziś jest: ${formattedDate}, godzina: ${formattedTime}`;
+                }
+                
+                updateTime(); 
+                setInterval(updateTime, 1000); 
+            }
+
+            const visitCountElement = document.getElementById('visit-count');
+
+            if (visitCountElement) {
+                let visitCount = localStorage.getItem('pageVisitCount');
+                
+                if (visitCount === null || isNaN(parseInt(visitCount))) {
+                    visitCount = 0;
+                } else {
+                    visitCount = parseInt(visitCount);
+                }
+
+                visitCount++;
+                localStorage.setItem('pageVisitCount', visitCount);
+                
+                visitCountElement.textContent = `Liczba odwiedzin: ${visitCount}`;
+            }
+
+            window.filterProjects = function(category) {
+                const projects = document.querySelectorAll('.project-item');
+                const buttons = document.querySelectorAll('.filter-btn');
+
+                if (projects.length === 0) return; 
+
+                buttons.forEach(btn => btn.classList.remove('active'));
+                
+                const activeBtn = document.querySelector(`.filter-btn[onclick="filterProjects('${category}')"]`);
+                if (activeBtn) {
+                    activeBtn.classList.add('active');
+                }
+
+                projects.forEach(project => {
+                    const projectCategory = project.getAttribute('data-category');
+                    if (category === 'all' || projectCategory === category) {
+                        project.style.display = 'block'; 
+                    } else {
+                        project.style.display = 'none'; 
+                    }
+                });
+            }
+
+            window.isValidEmail = function(email) {
+                const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                return emailRegex.test(email);
+            }
+            
+            window.validateForm = function() {
+                if (!document.getElementById('contactForm')) {
+                    return true;
+                }
+                
+                const name = document.getElementById('name');
+                const email = document.getElementById('email');
+                const subject = document.getElementById('subject');
+                const message = document.getElementById('message');
+
+                const nameError = document.getElementById('nameError');
+                const emailError = document.getElementById('emailError');
+                const subjectError = document.getElementById('subjectError');
+                const messageError = document.getElementById('messageError');
+                const successMessage = document.getElementById('successMessage');
+
+                let isValid = true;
+
+                [name, email, subject, message].forEach(input => input.classList.remove('is-invalid'));
+                [nameError, emailError, subjectError, messageError].forEach(error => error.textContent = '');
+                successMessage.style.display = 'none';
+
+                if (name.value.trim().length < 2) {
+                    nameError.textContent = 'Imię i nazwisko są wymagane (min. 2 znaki).';
+                    name.classList.add('is-invalid');
+                    isValid = false;
+                }
+
+                if (email.value.trim() === '') {
+                    emailError.textContent = 'Adres email jest wymagany.';
+                    email.classList.add('is-invalid');
+                    isValid = false;
+                } else if (!window.isValidEmail(email.value.trim())) {
+                    emailError.textContent = 'Podaj poprawny adres email (np. imie@domena.pl).';
+                    email.classList.add('is-invalid');
+                    isValid = false;
+                }
+
+                if (subject.value.trim().length < 5) {
+                    subjectError.textContent = 'Temat jest wymagany (min. 5 znaków).';
+                    subject.classList.add('is-invalid');
+                    isValid = false;
+                }
+
+                if (message.value.trim().length < 10) {
+                    messageError.textContent = 'Wiadomość jest wymagana (min. 10 znaków).';
+                    message.classList.add('is-invalid');
+                    isValid = false;
+                }
+
+                if (isValid) {
+                    successMessage.style.display = 'block';
+                    document.getElementById('contactForm').reset();
+                    return false; 
+                }
+
+                return isValid;
+            }
+        });
+    </script>
 </body>
 </html>
